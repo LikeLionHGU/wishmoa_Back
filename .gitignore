@@ -1,0 +1,14 @@
+node_modules
+dist
+dist-ssr
+*.local
+
+# API Keys and Secrets
+.env
+.env.*.local
+
+# IDE and OS files
+.vscode
+.idea
+.DS_Store
+Thumbs.db
