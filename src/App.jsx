@@ -49,7 +49,8 @@ function App() {
     setAnalysisResult(null);
 
     const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
-
+const G_url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
+    
     try {
       let base64Data;
       let mimeType = 'image/jpeg';
@@ -65,8 +66,9 @@ function App() {
         base64Data = btoa(String.fromCharCode(...new Uint8Array(buffer)));
       }
 
+       {/*이 부분 코드 수정-> 상대 경로라 오류 */}
       const response = await fetch(
-        `/api-gemini/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`,
+        G_url,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
